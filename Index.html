@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typing Text Animation</title>
+    <style>
+        *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: skyblue;
+}
+.wrapper{
+    display: flex;
+}
+.wrapper .static{
+    color: #fff;
+    font-size: 60px;
+    font-weight: 400;
+}
+.wrapper .dynamic{
+    margin-left: 15px;
+    height: 90px;
+    line-height: 90px;
+    overflow: hidden;
+}
+.dynamic li{
+    list-style: none;
+    color: crimson;
+    font-size: 60px;
+    font-weight: 500;
+    position: relative;
+    top: 0;
+    animation: slide 12s steps(4) infinite;
+}
+@keyframes slide {
+    100%{
+        top: -360px;
+    }
+}
+.dynamic li span{
+    position: relative;
+    margin: 5px 0;
+    line-height: 90px;
+}
+.dynamic li span::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: skyblue;
+    border-left: 2px solid #fc6d6d;
+    animation: typing 3s steps(10) infinite;
+}
+@keyframes typing {
+    40%, 60%{
+        left: 100%;
+    }
+}
+    </style>
+</head>
+<body>
+   <div class="wrapper">
+       <div class="static">I'm A </div>
+       <ul class="dynamic">
+           <li><span>Youtuber</span></li>
+           <li><span>Freelancer</span></li>
+           <li><span>Developer</span></li>
+           <li><span>Programmer</span></li>
+       </ul>
+   </div>
+</body>
+</html>
